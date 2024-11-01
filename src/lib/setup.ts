@@ -1,7 +1,8 @@
 // Unless explicitly defined, set NODE_ENV as development:
 process.env.NODE_ENV ??= 'development';
 
-import { ApplicationCommandRegistries, RegisterBehavior } from '@sapphire/framework';
+import { PrismaClient } from '@prisma/client';
+import { ApplicationCommandRegistries, container, RegisterBehavior } from '@sapphire/framework';
 import '@sapphire/plugin-api/register';
 import '@sapphire/plugin-editable-commands/register';
 import '@sapphire/plugin-logger/register';
@@ -24,8 +25,18 @@ inspect.defaultOptions.depth = 1;
 // Enable colorette
 colorette.createColors({ useColor: true });
 
+// Import Prisma
+const prisma = new PrismaClient()
+container.prisma = prisma;
+
 declare module '@skyra/env-utilities' {
 	interface Env {
 		OWNERS: ArrayString;
+	}
+}
+
+declare module '@sapphire/pieces' {
+	interface Container {
+		prisma: typeof prisma;
 	}
 }
