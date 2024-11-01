@@ -23,6 +23,7 @@ export class UserEvent extends Listener {
 		const line01 = llc('');
 		const line02 = llc('');
 		const line03 = llc('');
+		const line04 = llc('');
 
 		// Offset Pad
 		const pad = ' '.repeat(7);
@@ -32,6 +33,7 @@ export class UserEvent extends Listener {
 ${line01} ${pad}${blc('1.0.0')}
 ${line02} ${pad}[${success}] Gateway
 ${line03}${dev ? ` ${pad}${blc('<')}${llc('/')}${blc('>')} ${llc('DEVELOPMENT MODE')}` : ''}
+${line04} ${this.container.client.options.hmr?.enabled ? `${pad}${blc('<')}${llc('/')}${blc('>')} ${llc('HMR ENABLED')}` : ''}
 		`.trim()
 		);
 	}

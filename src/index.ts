@@ -10,6 +10,7 @@ const client = new SapphireClient({
 	logger: {
 		level: LogLevel.Debug
 	},
+	hmr: { enabled: process.env.NODE_ENV === 'development' },
 	shards: 'auto',
 	intents: [
 		GatewayIntentBits.DirectMessageReactions,
