@@ -18,14 +18,20 @@ model Guild {
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   Birthday  Birthday[]
+
+  @@map(name: "guilds")
 }
 
 model Birthday {
   id        String   @id
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  date      DateTime
+  day       Int
+  month     Int
+  year      Int?
   userId    String
   guild     Guild    @relation(fields: [guildId], references: [id])
   guildId   String
+
+  @@map(name: "birthdays")
 }
