@@ -14,24 +14,29 @@ datasource db {
 }
 
 model Guild {
-  id        String     @id
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  Birthday  Birthday[]
+  id                String     @id @map("id")
+  channelReminderId String?    @map("channel_reminder_id")
+  notificationTime  String?    @map("notification_time")
+  timezone          String?    @map("timezone")
+  createdAt         DateTime   @default(now()) @map("created_at")
+  updatedAt         DateTime   @updatedAt @map("updated_at")
+  birthdays         Birthday[]
 
+  @@index([id])
   @@map(name: "guilds")
 }
 
 model Birthday {
-  id        String   @id
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  userId    String   @id @map("user_id")
+  guildId   String   @map("guild_id")
   day       Int
   month     Int
   year      Int?
-  userId    String
-  guild     Guild    @relation(fields: [guildId], references: [id])
-  guildId   String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
+  guild Guild @relation(fields: [guildId], references: [id])
+
+  @@index([userId])
   @@map(name: "birthdays")
 }
