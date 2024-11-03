@@ -27,11 +27,14 @@
     "discord.js": "^14.16.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@sapphire/cli": "^1.9.3",
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.1",
     "@types/node": "^20.17.5",
     "@types/ws": "^8.5.13",
+    "cz-conventional-changelog": "^3.3.0",
     "prettier": "^3.3.3",
     "tsc-watch": "^6.2.0",
     "typescript": "~5.4.5"
@@ -42,6 +45,16 @@
   },
   "bugs": {
     "url": "https://github.com/swiizyy/BirthdayBuddy/issues"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "prettier": "@sapphire/prettier-config",
   "packageManager": "yarn@4.5.1"
