@@ -6,7 +6,7 @@ services:
     env_file:
       - src/.env.development
       - src/.env.development.local
-    image: ghcr.io/birthday-buddy:latest
+    image: ghcr.io/swiizyy/birthday-buddy:latest
     networks:
       - birthday-buddy
     ports:

@@ -30,4 +30,4 @@ jobs:
         with:
           push: true
           context: .
-          tags: ghcr.io/${{ github.repository_owner }}/birthday-buddy:latest
+          tags: ghcr.io/swiizyy/birthday-buddy:latest
