@@ -1,9 +1,21 @@
 {
+  "name": "birthday-buddy",
   "version": "1.0.0",
+  "description": "A Discord bot that helps you remember your friends' birthdays.",
   "main": "dist/index.js",
-  "author": "@sapphire",
-  "license": "UNLICENSE",
+  "author": "@swiizyy",
+  "license": "MIT",
   "type": "commonjs",
+  "scripts": {
+    "sapphire": "sapphire",
+    "generate": "sapphire generate",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "start": "node dist/index.js",
+    "dev": "npm run build && npm run start",
+    "watch:start": "tsc-watch --onSuccess \"npm run start\"",
+    "format": "prettier --write \"src/\""
+  },
   "dependencies": {
     "@sapphire/decorators": "^6.1.1",
     "@sapphire/discord.js-utilities": "7.3.1",
@@ -24,15 +36,12 @@
     "tsc-watch": "^6.2.0",
     "typescript": "~5.4.5"
   },
-  "scripts": {
-    "sapphire": "sapphire",
-    "generate": "sapphire generate",
-    "build": "tsc",
-    "watch": "tsc -w",
-    "start": "node dist/index.js",
-    "dev": "npm run build && npm run start",
-    "watch:start": "tsc-watch --onSuccess \"npm run start\"",
-    "format": "prettier --write \"src/\""
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swiizyy/BirthdayBuddy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/swiizyy/BirthdayBuddy/issues"
   },
   "prettier": "@sapphire/prettier-config",
   "packageManager": "yarn@4.5.1"
