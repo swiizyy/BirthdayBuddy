@@ -23,6 +23,7 @@ model Birthday {
   updatedAt DateTime @default(now()) @map("updated_at")
 
   @@id([userId, guildId])
+  @@map("birthdays")
 }
 
 model Guild {
@@ -31,9 +32,10 @@ model Guild {
   updatedAt DateTime @default(now()) @map("updated_at")
 
   @@unique([id])
+  @@map("guilds")
 }
 
-model Server_Birthday {
+model BirthdayServer {
   userId    String   @map("user_id")
   guildId   String   @map("guild_id")
   joinAt    DateTime @default(now()) @map("join_at")
@@ -41,4 +43,5 @@ model Server_Birthday {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@id([userId, guildId])
+  @@map("server_birthdays")
 }
