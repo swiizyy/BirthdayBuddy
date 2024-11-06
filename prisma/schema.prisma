@@ -1,3 +1,4 @@
+-- Active: 1730335229625@@127.0.0.1@5432@neondb
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -16,9 +17,8 @@ datasource db {
 model Birthday {
   userId    String   @map("user_id")
   guildId   String   @map("guild_id")
-  day       Int
-  month     Int
-  year      Int?
+  hideYear  Boolean  @default(false) @map("hide_year")
+  birthday  DateTime @map("birthday")
   createAt  DateTime @default(now()) @map("create_at")
   updatedAt DateTime @default(now()) @map("updated_at")
 
