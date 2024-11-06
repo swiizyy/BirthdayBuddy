@@ -16,9 +16,8 @@ datasource db {
 model Birthday {
   userId    String   @map("user_id")
   guildId   String   @map("guild_id")
-  day       Int
-  month     Int
-  year      Int?
+  hideYear  Boolean  @default(false) @map("hide_year")
+  birthday  DateTime @map("birthday")
   createAt  DateTime @default(now()) @map("create_at")
   updatedAt DateTime @default(now()) @map("updated_at")
 
